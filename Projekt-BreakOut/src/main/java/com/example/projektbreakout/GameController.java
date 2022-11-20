@@ -34,6 +34,7 @@ public class GameController {
     @FXML
     private Button startGame;
     private long lastTime;
+
     Game game;
 
     @FXML
@@ -106,17 +107,27 @@ public class GameController {
     private Button returnback;
 
     @FXML
-    void returnBtnClick(ActionEvent event){
-        System.out.println(game.getPlayerScore());
-        System.exit(1);
+    void returnBtnClick(ActionEvent event) throws IOException {
+        root = FXMLLoader.load(getClass().getResource("levels-view.fxml"));
+        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
     }
 
     @FXML
     private Button end;
 
     @FXML
-    void endbtnClick(ActionEvent event) {
-        System.exit(1);
+    void endbtnClick(ActionEvent event) throws IOException {
+
+        root = FXMLLoader.load(getClass().getResource("levels-view.fxml"));
+        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
     }
 }
 
